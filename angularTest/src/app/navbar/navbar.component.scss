@@ -1,0 +1,11 @@
+$background-moredark: rgb(255, 255, 255);
+
+.navbtn{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.active {
+    background: $background-moredark;
+}
+

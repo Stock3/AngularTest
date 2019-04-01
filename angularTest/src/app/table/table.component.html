@@ -1,0 +1,27 @@
+<div class="page-header">
+    <h1> Список учнів </h1>
+</div>
+<div>
+    <a routerLink = '/adduser'><button class="btn btn-success">Додати студента</button></a>
+</div>
+
+<div class="table-responsive table-container">
+    <table class="table table-striped table-dark">
+        <thead>
+            <tr>
+                <th>Ім'я</th>
+                <th>Вік</th>
+                <th><input type="text" class="form-control" placeholder="Search By Name" style="width: 300px" [(ngModel)]="searchUser"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users | filter: searchUser">
+                <td>{{user.name}}</td>
+                <td>{{user.age}}</td>
+                <td><button class="btn btn-danger" (click) = "deleteUser(user)">Видалити студента</button></td>
+                <td><a [routerLink] = "['/updateuser', user.id]"><button class="btn btn-success">Редагувати студента</button></a></td>
+            </tr>
+        </tbody>
+    </table>
+    <ngb-pagination class="d-flex justify-content-center" [collectionSize]="collectionSize" [pageSize]="itemsPerPage" [(page)]="page" [boundaryLinks]="true" (pageChange)="onPageChange($event)"></ngb-pagination>
+</div>

@@ -1,0 +1,16 @@
+<div class="page-header">
+    <h1> Редагувати учня </h1>
+</div>
+
+<div>
+    <p *ngIf = "!exist">
+      Учня не існує!
+    </p>
+</div>
+
+<form id="formNewUser" name="formNewUser" #userData = "ngForm" (ngSubmit) = "updateUser(userData.value)"> 
+  <label>Name: </label><input type = "text" name="name" id="name" placeholder="name" [(ngModel)] = "data.name" ngModel><br>
+  <label>Age: </label><input type = "number" name="age" id="age" placeholder="age" [(ngModel)] = "data.age"  ngModel><br>
+  <button class="btn btn-success">Редагувати студента</button>
+  <a routerLink = "/table"><button class="btn btn-warning">Повернутися</button></a>
+</form>
